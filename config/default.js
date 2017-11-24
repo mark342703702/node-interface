@@ -1,0 +1,9 @@
+module.exports = {
+    port : 8001,
+    session : {
+        secret: 'markmarkmark',
+        key: 'xiaoshidaimark',
+        maxAge: 43200000 //过期时间
+    },
+    mongodb: 'mongodb://localhost:27017/interface'
+}
