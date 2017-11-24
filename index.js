@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const config = require('config-lite')
+const router = require('./lib/routes/index').default
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const db = require('./mongodb/db')
@@ -24,10 +25,8 @@ app.use(session({
 
 }))
 
-app.get('/', (req, res) => {
-    res.send('s')
-})
+router(app);
 
-app.listen(3000, () => {
+app.listen(config.port, () => {
     console.log(`程序运行在端口3000`)
 })
