@@ -5,5 +5,6 @@ module.exports = {
         key: 'xiaoshidaimark',
         maxAge: 43200000 //过期时间
     },
-    mongodb: 'mongodb://localhost:27017/interface'
+    mongodb: 'mongodb://localhost:27017/interface',
+    cryptoSecret : 'xiaoshidaicrpto'
 }

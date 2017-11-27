@@ -1,11 +1,19 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
+import {setPasswordCrtpto} from '../../utils/index'
 
+/*
+用户通过QQ和密码进行登录
+*/
+
+//管理员
 const adminSchema = new Schema({
+    //管理员id
+    AdminId : {type: String, unique: true, required : true},
     //姓名
     user_name: { type: String, required: true},
     //密码
-    password: { type: String, required: true},
+    password: { type: String, required: true, set : setPasswordCrtpto},
     //QQ
     QQ : { type: String, unique: true, required: true},
     //创建时间
