@@ -50,6 +50,28 @@ class Admin {
         }
     }
 
+    //找到管理员
+    async findAdmin(req, res, next){
+        let id = req.body.id;
+        console.log(id)
+        let params = {
+            AdminId : 'adm9642226326396324'
+        }
+        try{
+            const result = await AdminModel.find(params) 
+            res.json({
+                status: 0,
+                message: '查询管理员成功',
+                result : result
+            })
+        }catch(err){
+            res.json({
+                status: 1,
+                message: '查询管理员失败',
+                err : err
+            })
+        }
+    }
     
 }
 

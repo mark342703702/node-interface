@@ -5,6 +5,10 @@ const router = require('./lib/routes/index').default
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const db = require('./mongodb/db')
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended: true}));
+
 //设置session
 app.use(session({
     //设置 cookie 中保存 session id 的字段名称
