@@ -1,11 +1,11 @@
-const express = require('express')
-const app = express()
-const config = require('config-lite')
-const router = require('./lib/routes/index').default
-const session = require('express-session')
+import express  from 'express'
+import config  from 'config-lite'
+import router from './routes/index'
+import session from 'express-session'
+import db from './mongodb/db'
+import bodyParser from 'body-parser'
 const MongoStore = require('connect-mongo')(session)
-const db = require('./mongodb/db')
-const bodyParser = require('body-parser')
+const app = express()
 
 app.use(bodyParser.urlencoded({extended: true}));
 

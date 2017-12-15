@@ -5,5 +5,6 @@ const router = express.Router()
 router.get('/removeAdmin', Admin.RemoveAdmin)
 router.get('/createAdmin', Admin.CreateAdmin)
 router.post('/findAdmin', Admin.findAdmin)
+router.get('/findAdmin', Admin.findAdmin)
 
 export default router
