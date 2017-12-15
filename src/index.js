@@ -7,7 +7,8 @@ import bodyParser from 'body-parser'
 const MongoStore = require('connect-mongo')(session)
 const app = express()
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 //设置session
 app.use(session({

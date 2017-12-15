@@ -1,12 +1,12 @@
 import AdminModel from '../../models/admin/admin'
-import {setRandomId} from '../../utils/index'
+import {setRandomId, setPasswordCrtpto} from '../../utils/index'
 
 class Admin {
 
     //增加管理员
     async CreateAdmin(req, res, next){
         let params = {
-            QQ : '223s',
+            QQ : '342703702',
             user_name : 's',
             password : '123',
             status : 'Admin',
@@ -53,12 +53,12 @@ class Admin {
     //找到管理员
     async findAdmin(req, res, next){
         let id = req.body.id;
-        console.log(id)
+        console.log(req.body)
         let params = {
-            AdminId : 'adm9642226326396324'
+            QQ : '223s'
         }
         try{
-            const result = await AdminModel.find(params) 
+            const result = await AdminModel.findOne(params) 
             res.json({
                 status: 0,
                 message: '查询管理员成功',
@@ -71,6 +71,34 @@ class Admin {
                 err : err
             })
         }
+    }
+
+    //登录
+    async login(req, res, next){
+        let userQQ = req.body.QQ;
+        let userPassword = req.body.password;
+        console.log(userQQ)
+        try {
+            const result = await AdminModel.findOne({QQ : userQQ})
+            if( result.password === setPasswordCrtpto(userPassword)){
+                res.json({
+                    status : 1,
+                    message : '登录成功'
+                })
+            }else{
+                res.json({
+                    status : 0,
+                    message : '用户密码或者QQ不对'
+                })
+            }
+        }catch(err){
+                res.json({
+                    status : 2,
+                    message : '登录失败',
+                    err : err
+                })
+        }
+
     }
     
 }
