@@ -19,8 +19,16 @@ const setRandomId = (pre = '', len = 16) =>{
     return pre + res
 }   
 
+const ObjectStringToJson = (data) => {
+    for (let i in data){
+        data[i] = JSON.parse(data[i])
+    }
+    return data
+}
+
 export {
     setPasswordCrtpto,
-    setRandomId
+    setRandomId,
+    ObjectStringToJson
 }
 
