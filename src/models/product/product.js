@@ -10,15 +10,32 @@ var sale_price_set = function(val){
 //商品
 var productSchema = new Schema({
     //商品编号
-    productId : {type : String, required: true},
+    productId : {type : String, unique: true, required: true},
+
     //商品描述
-    description : String,
+    product_name : {type : String, required: true},
+
     //库存(最小为零)
     stock : {type : Number, min:0, max : 1000, required : true},
+
     //进价
     buyin_price : {type : Number, min : 0, required : true},
+
     //售价
-    sale_price : {type : Number, min : 0, required : true, set : sale_price_set}
+    sale_price : {type : Number, min : 0, required : true, set : sale_price_set},
+
+    //所属店铺
+    shopId : {type : String, required : true},
+
+    //所属年份
+    year : {type : String, required : true},
+
+    //所属季节
+    season :  {type : String, enum : ['spring', 'summer', 'autumn', 'winter'], required: true},
+
+    //所属类型
+    style : {type : String, required: true}
+   
 });
 
 const Product = mongoose.model('Product', productSchema)

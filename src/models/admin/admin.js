@@ -22,6 +22,6 @@ const adminSchema = new Schema({
 	status: { type : String, enum : ['Admin', 'superAdmin'], required: true, default : 'Admin'}
 })
 
-const Admin = mongoose.model('Admin', adminSchema);
+const Admin = mongoose.model('Admin', adminSchema)
 
 export default Admin

@@ -37,7 +37,6 @@ class Member {
 
 	//查找会员
 	async FindMember(req, res, next){
-		console.log('s')
 		let params = {} 
 		try {
 
