@@ -15,12 +15,12 @@ class Member {
 
 		
 		try{
-
+			
 			const result = await MemberModel.create(params)
 			res.json({
 				status : 0,
 				message : '添加会员成功',
-				result : result
+				result
 			})
 
 		}catch(err){
@@ -28,7 +28,7 @@ class Member {
 			res.json({
                 status: 1,
                 message: '添加会员失败',
-                err : err
+                err
 			})
 			
 		}

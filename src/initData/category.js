@@ -1,18 +1,18 @@
 const sub_category = [
     {
-        season_name : '春天',
+        season_name : '春季',
         season_code : 'spring'
     },
     {
-        season_name : '夏天',
+        season_name : '夏季',
         season_code : 'summer'
     },
     {
-        season_name : '秋天',
+        season_name : '秋季',
         season_code : 'autumn'
     },
     {
-        season_name : '冬天',
+        season_name : '冬季',
         season_code : 'winter'
     }
 ]

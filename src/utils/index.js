@@ -19,6 +19,7 @@ const setRandomId = (pre = '', len = 16) =>{
     return pre + res
 }   
 
+
 const ObjectStringToJson = (data) => {
     for (let i in data){
         data[i] = JSON.parse(data[i])
@@ -26,9 +27,38 @@ const ObjectStringToJson = (data) => {
     return data
 }
 
+//修改季节字段返回
+const season_get = (val) => {
+    let season_name = ''
+    switch(val){
+
+        case 'spring' : 
+            season_name = '春季'
+            break
+
+        case 'summer' : 
+            season_name = '夏季'
+            break
+
+        case 'autumn' :
+            season_name = '秋季'
+            break
+
+        case 'winter' :
+            season_name = '冬季'
+            break
+
+        default :
+            season_name = '字段错误'
+    }
+
+    return season_name
+}
+
 export {
     setPasswordCrtpto,
     setRandomId,
-    ObjectStringToJson
+    ObjectStringToJson,
+    season_get
 }
 

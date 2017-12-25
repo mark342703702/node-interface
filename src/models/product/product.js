@@ -25,13 +25,20 @@ var productSchema = new Schema({
     sale_price : {type : Number, min : 0, required : true, set : sale_price_set},
 
     //所属店铺
-    shopId : {type : String, required : true},
+    shop : {
+        shopId : {type : String, required : true},
+        shop_name : {type : String, required : true}
+    },
 
     //所属年份
     year : {type : String, required : true},
 
     //所属季节
-    season :  {type : String, enum : ['spring', 'summer', 'autumn', 'winter'], required: true},
+    season :  {
+                type : String, 
+                enum : ['spring', 'summer', 'autumn', 'winter'],
+                required: true,
+              },
 
     //所属类型
     style : {type : String, required: true}
