@@ -9,5 +9,8 @@ router.get('/addYearToCategory', Category.addYearToCategory)
 
 router.post('/addProduct', Product.addProduct)
 router.get('/getProduct', Product.getProduct)
+router.post('/updateProduct', Product.updateProduct)
+router.post('/deleteProduct', Product.deleteProduct)
+router.get('/getProductCount', Product.getProductCount)
 
 export default router
