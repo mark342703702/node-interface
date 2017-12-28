@@ -35,27 +35,45 @@ class Member {
 
 	}
 
-	//查找会员
-	async FindMember(req, res, next){
-		let params = {} 
-		try {
+	async getMember(req, res, next){
+		let pageSize = parseInt(req.query.pageSize)
+        let currentPage = parseInt(req.query.currentPage)
+		let pageNum = (currentPage-1)*pageSize
+		try{
+            const result = await MemberModel.find({}).limit(pageSize).skip(pageNum)
+            res.json({
+                status : 0,
+                message : '获取会员成功',
+                result
+            })
+        }catch(err){
+            res.json({
+                status : 1,
+                message : '获取会员失败',
+                result
+            })
+        }
+	}
 
-			const result = await MemberModel.find(params)
+	async getMemberCount(req, res, next){
+		try{
+			const count = await MemberModel.count()
 			res.json({
 				status : 0,
-				message : '查询会员成功',
-				result : result
+				message : '获取会员数量成功',
+				count
 			})
-			
-
 		}catch(err){
 			res.json({
 				status : 1,
-				message : '查询会员失败',
-				err : err
+				message : '获取会员数量失败',
+				err
 			})
 		}
 	}
+
+	
+	
 
 	//精确查找会员(根据会员id)
 	async FindOneMember(req, res, next){
