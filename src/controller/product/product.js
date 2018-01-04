@@ -52,7 +52,10 @@ class Product {
         let currentPage = parseInt(req.query.currentPage)
         let pageNum = (currentPage-1)*pageSize
         try{
-            const result = await ProductModel.find({}).limit(pageSize).skip(pageNum)
+            const result = await ProductModel.find({})
+                                             .sort({sale_price : 1})
+                                             .limit(pageSize)
+                                             .skip(pageNum)
             result.map( (item) => {
                 item.season = season_get(item.season)
                 return item
@@ -139,6 +142,29 @@ class Product {
                 err
             })
         }   
+    }
+
+    //模糊查询商品
+    async getProductMisty(req, res, next){
+
+        try{
+            const result = await ProductModel.find({})
+
+            res.json({
+                status: 0,
+                message : '模糊查询商品成功',
+				result
+            })
+
+        }catch(err){
+
+            res.json({
+                status : 1,
+                message : '模糊查询商品失败',
+                err
+            })
+
+        }
     }
 
 }

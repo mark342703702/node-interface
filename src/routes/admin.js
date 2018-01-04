@@ -10,5 +10,6 @@ router.post('/addAdmin', Admin.addAdmin)
 router.post('/login', Admin.login)
 
 router.post('/girl/addGirl', Girl.addGirl)
+router.get('/girl/getGirl', Girl.getGirl)
 
 export default router

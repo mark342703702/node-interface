@@ -46,6 +46,24 @@ class Shop {
             })
         }
     }
+
+    // async addGirlToShop(req, res, next){
+
+    //     try{
+    //         const result = await ShopModel.update({shopId : 'shop66218481'}, {$addToSet : {girl : '1223'}})
+    //         res.json({
+    //                 status : 0,
+    //                 message : '查询店铺数据成功',
+    //                 result
+    //             })
+    //     }catch(err){
+    //         res.json({
+    //             status : 1,
+    //             message : '添加职员到店铺数据失败',
+    //             err
+    //         })
+    //     }
+    // }
 }
 
 export default new Shop()

@@ -12,5 +12,6 @@ router.get('/getProduct', Product.getProduct)
 router.post('/updateProduct', Product.updateProduct)
 router.post('/deleteProduct', Product.deleteProduct)
 router.get('/getProductCount', Product.getProductCount)
+router.get('/getProductMisty', Product.getProductMisty)
 
 export default router
