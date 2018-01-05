@@ -146,9 +146,10 @@ class Product {
 
     //模糊查询商品
     async getProductMisty(req, res, next){
-
+        let reg = req.query.reg
+        let productIdReg = new RegExp(reg, 'i')
         try{
-            const result = await ProductModel.find({})
+            const result = await ProductModel.find({productId : productIdReg}).limit(10)
 
             res.json({
                 status: 0,
